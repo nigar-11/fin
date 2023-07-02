@@ -1,0 +1,585 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinEdge</title>
+  <link rel="stylesheet" href="path/to/owl.carousel.min.css">
+  <link rel="stylesheet" href="path/to/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+</head>
+<body>
+	
+<style>
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3c4eaa;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  z-index: 100;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 5px;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin-left: 45px;
+  display: flex;
+  align-items: center; 
+  margin-right: 20px
+}
+
+.navbar-menu li:first-child {
+  margin-left: 0;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: lightgrey;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-menu {
+    display: none;
+    margin-top: 10px;
+    padding: 0;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-menu li {
+    margin: 10px 0;
+  }
+
+  .navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-menu a:hover {
+    color: #f8f8f8;
+  }
+
+  .navbar-toggle {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .navbar-toggle.active span:first-child {
+    transform: rotate(45deg) translate(0, 3px);
+    background-color: #fff;
+  }
+
+  .navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active span:last-child {
+    transform: rotate(-45deg) translate(0, -3px);
+    background-color: #fff;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+#home {
+  background-color: #f0f4f8;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #eaf2fe 25%, transparent 25%),
+    linear-gradient(-45deg, #eaf2fe 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #eaf2fe 75%),
+    linear-gradient(-45deg, transparent 75%, #eaf2fe 75%);
+  background-size: 20px 20px;
+  z-index: -1;
+}
+
+#home h1,
+#home .description {
+  position: relative;
+  display: inline-block;
+  color: #4c60e6;
+  transition: color 0.3s ease;
+}
+
+@keyframes changeColor {
+  0% {
+    color: #f44336;
+  }
+  25% {
+    color: #4caf50;
+  }
+  50% {
+    color: #2196f3;
+  }
+  75% {
+    color: #ff9800;
+  }
+  100% {
+    color: #9c27b0;
+  }
+}
+
+#home h1:hover {
+  animation: changeColor 5s infinite;
+}
+
+#home h1::before,
+#home .description::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(to right, #4c60e6 50%, transparent 50%);
+  background-position: 0 0;
+  background-size: 20px 2px;
+  transition: background-position 0.3s ease-in-out;
+}
+
+#home h1:hover::before {
+  background-position: -20px 0;
+}
+
+#home .content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#home h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#home .description {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  #home {
+    padding: 2rem 0;
+  }
+
+  #home h1 {
+    font-size: 2.5rem;
+  }
+
+  #home .description {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
+
+
+
+#about {
+  background-color: #f5f5f5;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+#about .content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#about h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  transition: color 0.3s;
+}
+
+#about h2::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #1e40af;
+  overflow: hidden;
+  animation: shimmer 2s infinite linear;
+}
+
+#about p {
+  font-size: 1.2rem;
+  color: #666;
+  transition: color 0.3s;
+}
+
+#about h2:hover {
+  color: #ff6b6b; 
+}
+
+#about p:hover {
+  color: #4caf50; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#services {
+  background-color: #f8f8f8;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+#services .content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#services h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service {
+  flex: 1 1 300px;
+  max-width: 300px;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.service:hover {
+  background-color: #f5f5f5;
+}
+
+.service img {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.service h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  #services {
+    padding: 2rem 0;
+  }
+
+  #services h2 {
+    font-size: 1.8rem;
+  }
+
+  .services {
+    flex-wrap: wrap;
+  }
+
+  .service {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+#contact {
+  background-color: #f8f8f8;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+#contact .content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#contact h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+#contact form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#contact form label {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+#contact form input,
+#contact form textarea {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+#contact form textarea {
+  height: 120px;
+}
+
+#contact form button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #3c4eaa;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact form button:hover {
+  background-color: #2b3c80;
+  border-radius: 70%; 
+}
+
+@media (max-width: 768px) {
+  #contact {
+    padding: 2rem 0;
+  }
+
+  #contact h2 {
+    font-size: 1.8rem;
+  }
+
+  #contact form label,
+  #contact form input,
+  #contact form textarea {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+
+
+</style>
+<astro-viewport>
+	<Layout title="FinEdge - Home">
+		<nav class="navbar">
+			<div class="navbar-header">
+			  <div class="navbar-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			  </div>
+			  <!-- <a class="navbar-logo" href="#home">Logo</a> -->
+			</div>
+			<ul class="navbar-menu">
+			  <li><a href="#home">Home</a></li>
+			  <li><a href="#about">About Us</a></li>
+			  <li><a href="#services">Services</a></li>
+			  <li><a href="#contact">Contact Us</a></li>
+			</ul>
+		  </nav>
+		  
+
+		  
+
+		<section id="home" class="section">
+			<div class="content">
+			  <h1>Welcome to <span class="highlight">FinEdge</span></h1>
+			  <p class="description">Transforming cross-border payments with cutting-edge fintech solutions.</p>
+			</div>
+		  </section>
+		  
+
+		  <section id="about" class="section">
+			<div class="content">
+			  <h2>About Us</h2>
+			  <p>FinEdge is a cutting-edge fintech startup focused on transforming cross-border payments.
+				 We believe in a world where geographic boundaries should not limit individuals and businesses
+				  from making seamless transactions.</p>
+			</div>
+		  </section>
+		  
+
+		  <section id="services" class="section">
+			<div class="content">
+			  <h2>Our Services</h2>
+			  <div class="services owl-carousel">
+				<div class="service">
+				  <img src="/images/money-transfer.jpg" alt="Money Transfer">
+				  <h3>Individual Money Transfers</h3>
+				  <p>Effortlessly send and receive money across borders with our secure and fast money transfer service.</p>
+				</div>
+				<div class="service">
+				  <img src="/images/business-payments.jpg" alt="Business Payments">
+				  <h3>Business Payments</h3>
+				  <p>Streamline your business payments and expand globally with our innovative business payment solutions.</p>
+				</div>
+				<div class="service">
+				  <img src="/images/payment-tracking.jpg" alt="Payment Tracking">
+				  <h3>Real-time Payment Tracking</h3>
+				  <p>Track your cross-border payments in real-time and stay informed at every step of the process.</p>
+				</div>
+			  </div>
+			</div>
+		  </section>
+		  
+		  
+		  
+
+		  <section id="contact" class="section">
+			<div class="content">
+			  <h2>Contact Us</h2>
+			  <form>
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" required>
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email" required>
+				<label for="message">Message</label>
+				<textarea id="message" name="message" required></textarea>
+				<button type="submit">Submit</button>
+			  </form>
+			</div>
+		  </section>
+		  
+	</Layout>
+</astro-viewport>
+
+
+
+<script>
+const navbarToggle = document.querySelector('.navbar-toggle');
+const navbarMenu = document.querySelector('.navbar-menu');
+const navbar = document.querySelector('.navbar');
+
+navbarToggle.addEventListener('click', () => {
+  navbarToggle.classList.toggle('active');
+  navbarMenu.classList.toggle('active');
+});
+
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  const isMenuClicked = target.closest('.navbar-menu') !== null;
+  const isToggleClicked = target.classList.contains('navbar-toggle');
+
+  if (!isMenuClicked && !isToggleClicked && !navbar.contains(target) && window.innerWidth <= 768) {
+    navbarToggle.classList.remove('active');
+    navbarMenu.classList.remove('active');
+  }
+});
+
+
+  </script>
+  
+
+</body>
+</html>
